@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <Compile Remove="IntegrationTests\UserControllerIntegrationTests.cs" />
+    <Compile Remove="UnitTests\UserDbServiceUnitTests.cs" />
   </ItemGroup>
 
   <ItemGroup>
