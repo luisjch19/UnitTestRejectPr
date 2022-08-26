@@ -21,7 +21,7 @@ namespace RestApi.Controllers
             this._mapper = mapper;
         }
 
-        //Obtener todos los registros ehhh hhh ddd erert
+        //Obtener todos los registros ehhh hhh ddd erert ghghghgh ghghghgh
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
@@ -96,6 +96,26 @@ namespace RestApi.Controllers
         }
 
 
+
+        [HttpPut("{id}")]
+        //comentario prueba
+        public async Task<IActionResult> Update(Guid id, [FromBody] UserForUpdateDto userForUpdate)
+        {
+            var user = await _userDbService.GetById(id);
+
+            if (user == null) return NotFound($"Cannot find User with {id} id.");
+
+            user.name = userForUpdate.name;
+            user.password = userForUpdate.password;
+
+            var updatedUser = await _userDbService.Update(user);
+
+            if (updatedUser == null) return StatusCode(StatusCodes.Status500InternalServerError);
+
+            var mappedUpdatedUser = _mapper.Map<UserDto>(updatedUser);
+
+            return Ok(mappedUpdatedUser);
+        }
 
         [HttpPut("{id}")]
         //comentario prueba
