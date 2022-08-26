@@ -21,7 +21,7 @@ namespace RestApi.Controllers
             this._mapper = mapper;
         }
 
-        //Obtener todos los registros ehhh hhh ddd erert
+        //Obtener todos los registros ehhh hhh ddd erert ghghghgh
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
